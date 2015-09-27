@@ -198,4 +198,11 @@ pluginopt.add_argument("--gomtv-password", metavar="password",
                             "streams (if left blank you will be prompted)",
                        nargs="?", const=True, default=None)
 
+pluginopt.add_argument("--gamepass-cookies", metavar="cookies",
+                       help="Specify gamepass cookies to allow access")
+pluginopt.add_argument("--gamepass-username", metavar="username",
+                       help="Specify gamepass username to allow access")
+pluginopt.add_argument("--gamepass-password", metavar="password",
+                       help="Specify gamepass password to allow access")
+
 __all__ = ["parser"]

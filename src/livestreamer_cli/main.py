@@ -559,6 +559,11 @@ def setup_options():
     else:
         gomtv_password = args.gomtv_password
 
+    if args.gamepass_username and not args.gamepass_password:
+        gamepass_password = console.askpass("Enter NFL Gamepass password: ")
+    else:
+        gamepass_password = args.gamepass_password
+
     livestreamer.set_option("errorlog", args.errorlog)
 
     if args.rtmpdump:
@@ -606,6 +611,18 @@ def setup_options():
     if gomtv_password:
         livestreamer.set_plugin_option("gomtv", "password",
                                        gomtv_password)
+
+    if args.gamepass_cookies:
+        livestreamer.set_plugin_option("gamepass", "cookies",
+                                       args.gamepass_cookies)
+
+    if args.gamepass_username:
+        livestreamer.set_plugin_option("gamepass", "username",
+                                       args.gamepass_username)
+
+    if gamepass_password:
+        livestreamer.set_plugin_option("gamepass", "password",
+                                       gamepass_password)
 
 
 def check_root():
